@@ -1,7 +1,7 @@
 import { companies } from "@/data/companies";
 import { Company } from "./types";
 
-export function getCompanies() {
+export function getCompanies(): Company[] {
   return companies;
 }
 
