@@ -1,4 +1,5 @@
 import type { Company, RiskLevel } from "@/lib/types";
+import WatchlistButton from "@/components/WatchlistButton";
 import Link from "next/link";
 
 const riskBadgeClass: Record<RiskLevel, string> = {
@@ -47,6 +48,10 @@ export function CompanyCard({ company }: { company: Company }) {
             </dd>
           </div>
         </dl>
+
+        <div className="card-actions justify-end border-t border-base-300 pt-4">
+          <WatchlistButton companyId={company.id} />
+        </div>
       </div>
     </article>
   );
