@@ -1,8 +1,10 @@
 import { CompanyCard } from "@/components/CompanyCard";
 import { CompanyFilters } from "@/components/CompanyFilters";
+import { EmptyState } from "@/components/EmptyState";
 import { companies } from "@/data/companies";
 import { filterCompanies } from "@/lib/filters";
 import { RiskLevel, Sector } from "@/lib/types";
+import Link from "next/link";
 
 type SearchParams = {
   query?: string;
@@ -54,17 +56,16 @@ export default async function Page({
               <CompanyCard key={company.id} company={company} />
             ))
           ) : (
-            <div
-              role="status"
-              className="alert alert-soft border-base-300 bg-base-100 text-base-content md:col-span-2 xl:col-span-3"
-            >
-              <div>
-                <h2 className="font-semibold">No companies found</h2>
-                <p className="text-sm text-base-content/70">
-                  Try adjusting or clearing your filters.
-                </p>
-              </div>
-            </div>
+            <EmptyState
+              title="No companies found"
+              description="Try adjusting your search or clear the filters to see every company."
+              className="md:col-span-2 xl:col-span-3"
+              action={
+                <Link href="/companies" className="btn btn-sm btn-ghost">
+                  Clear filters
+                </Link>
+              }
+            />
           )}
         </section>
       </div>
