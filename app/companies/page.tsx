@@ -34,7 +34,8 @@ export default async function Page({
               Company Scope
             </p>
             <h1 className="mt-2 text-3xl font-semibold">Companies</h1>
-            <CompanyFilters />
+            {/* key prop with the url filters, così ogni volta che cambia una query param rimontiamo il componente*/}
+            <CompanyFilters key={JSON.stringify(filters)} />
             <p className="mt-2 text-base-content/65">
               Browse company growth and risk across sectors.
             </p>
