@@ -1,4 +1,5 @@
 import type { Company, RiskLevel } from "@/lib/types";
+import Link from "next/link";
 
 const riskBadgeClass: Record<RiskLevel, string> = {
   low: "badge-success",
@@ -12,7 +13,14 @@ export function CompanyCard({ company }: { company: Company }) {
       <div className="card-body gap-4 p-5">
         <header className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="card-title text-lg leading-snug">{company.name}</h2>
+            <h2 className="card-title text-lg leading-snug">
+              <Link
+                href={`/companies/${company.id}`}
+                className="link link-hover"
+              >
+                {company.name}
+              </Link>
+            </h2>
             <p className="mt-1 text-sm text-base-content/65">{company.city}</p>
           </div>
           <span
