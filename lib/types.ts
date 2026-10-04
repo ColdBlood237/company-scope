@@ -23,7 +23,7 @@ export interface Company {
   description: string;
 }
 
-export interface CompanyFilters {
+export interface Filters {
   query: string;
   sector: Sector | "all";
   risk: RiskLevel | "all";
